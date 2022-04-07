@@ -1,10 +1,10 @@
 /*
  * @Date: 2022-04-06 17:26:11
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-06 23:05:44
- * @FilePath: /arithmetic/src/rotate/k-revers.test.js
+ * @LastEditTime: 2022-04-07 11:50:24
+ * @FilePath: /arithmetic/src/rotate/index.test.js
  */
-const rotate = require('./k-revers.js')
+const rotate = require('./index.js')
 
 describe('测试K值翻转', () => {
     it('测试空数组情况', () => {
