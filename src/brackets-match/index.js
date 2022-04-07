@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-07 10:34:56
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-07 11:45:19
+ * @LastEditTime: 2022-04-07 11:56:13
  * @FilePath: /arithmetic/src/brackets-match/index.js
  */
 /**
@@ -22,7 +22,7 @@ function brackets(str) {
 }
 
 /**
- * @description: 用栈去实现  时间复杂度O(n) 空间复杂度O(1)
+ * @description: 用栈去实现  时间复杂度O(n) 空间复杂度O(n)
  * @param {str} 
  * @return {boolean}
  */
