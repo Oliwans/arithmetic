@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-09 23:43:44
+ * @LastEditTime: 2022-04-10 00:15:12
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -42,4 +42,4 @@
 
 //----------------------------- 找出一个数组中和为n的两个数 -----------------------------
 const findSumArr = require('./two-number-sum/index.js')
-console.log(findSumArr([1,2,3,4,5,6,7,9], 6))
+console.log(findSumArr([9], 9))
