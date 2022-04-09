@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 00:15:12
+ * @LastEditTime: 2022-04-10 00:45:49
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -12,6 +12,10 @@
 //----------------------------- 判断字符串括号匹配 -----------------------------
 // const fun = require('./brackets-match/index.js')
 // console.log(fun('{[3]}'))
+
+// ----------------------------- 二分查找（数组） -----------------------------
+// const {binarySearch} = require('./binary-search/index.js')
+// console.log(binarySearch([1,2,3,4,5,6,7,8],6))
 
 //----------------------------- 两个栈实现一个队列 -----------------------------
 // const myQueue = require('./two-stack-one-queue/index.js')
@@ -41,5 +45,5 @@
 // console.log(queue.length)
 
 //----------------------------- 找出一个数组中和为n的两个数 -----------------------------
-const findSumArr = require('./two-number-sum/index.js')
-console.log(findSumArr([9], 9))
+// const findSumArr = require('./two-number-sum/index.js')
+// console.log(findSumArr([9], 9))
