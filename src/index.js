@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 00:45:49
+ * @LastEditTime: 2022-04-10 01:02:04
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -47,3 +47,38 @@
 //----------------------------- 找出一个数组中和为n的两个数 -----------------------------
 // const findSumArr = require('./two-number-sum/index.js')
 // console.log(findSumArr([9], 9))
+
+//----------------------------- 二叉树相关 -----------------------------
+// const {frontTraverseTree, middleTraverseTree, postTraverseTree} = require('./binary-search-tree/index.js')
+// const tree = {
+//     value: 5,
+//     left: {
+//         value: 3,
+//         left: {
+//             value: 2,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             value: 4,
+//             left: null,
+//             right: null
+//         }
+//     },
+//     right: {
+//         value: 7,
+//         left: {
+//             value: 6,
+//             left: null,
+//             right: null
+//         },
+//         right: {
+//             value: 8,
+//             left: null,
+//             right: null
+//         }
+//     }
+// }
+// console.log(frontTraverseTree(tree), '前序')
+// console.log(middleTraverseTree(tree), '中序')
+// console.log(postTraverseTree(tree), '后序')
