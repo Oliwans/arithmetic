@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 01:02:04
+ * @LastEditTime: 2022-04-10 19:33:24
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -49,7 +49,7 @@
 // console.log(findSumArr([9], 9))
 
 //----------------------------- 二叉树相关 -----------------------------
-// const {frontTraverseTree, middleTraverseTree, postTraverseTree} = require('./binary-search-tree/index.js')
+// const {frontTraverseTree, middleTraverseTree, postTraverseTree, findTreeK} = require('./binary-search-tree/index.js')
 // const tree = {
 //     value: 5,
 //     left: {
@@ -82,3 +82,12 @@
 // console.log(frontTraverseTree(tree), '前序')
 // console.log(middleTraverseTree(tree), '中序')
 // console.log(postTraverseTree(tree), '后序')
+// console.log(findTreeK(tree, 2))
+
+//----------------------------- 斐波那契数列求第n个数 -----------------------------
+// const fun = require('./fibonacci/index.js')
+// console.log(fun(9))
+
+//----------------------------- 移动数组中的0到末尾 -----------------------------
+const fun = require('./move-zero/index.js')
+console.log(fun([1,0,3,4,0,0,11,0]))

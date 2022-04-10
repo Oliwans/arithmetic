@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-09 23:28:37
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 00:11:54
+ * @LastEditTime: 2022-04-10 18:07:17
  * @FilePath: /arithmetic/src/two-number-sum/index.js
  */
 /**
@@ -10,6 +10,7 @@
  * @return {Array}
  */
 
+// 递归
 function findSumArr(arr, n, start = 0, end = arr.length - 1) {
     if (!arr.length) return []
     if (arr.length === 1 && arr[0] === n) return [arr[0]]
@@ -26,6 +27,7 @@ function findSumArr(arr, n, start = 0, end = arr.length - 1) {
     }
 }
 
+// 循环
 function findSumArr2(arr, n) {
     if (!arr.length) return []
     if (arr.length === 1 && arr[0] === n) return [arr[0]]
