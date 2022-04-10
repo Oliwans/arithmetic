@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 19:33:24
+ * @LastEditTime: 2022-04-11 01:40:55
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -89,5 +89,10 @@
 // console.log(fun(9))
 
 //----------------------------- 移动数组中的0到末尾 -----------------------------
-const fun = require('./move-zero/index.js')
-console.log(fun([1,0,3,4,0,0,11,0]))
+// const fun = require('./move-zero/index.js')
+// console.log(fun([1,0,3,4,0,0,11,0]))
+
+//----------------------------- 输出连续字符及次数 -----------------------------
+const fun = require('./continue-number/index.js')
+const result = fun('adda')
+console.log(result)
