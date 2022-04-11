@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-10 23:09:57
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-11 01:37:33
+ * @LastEditTime: 2022-04-11 11:51:27
  * @FilePath: /arithmetic/src/continue-number/index.js
  */
 /**
@@ -52,7 +52,6 @@ function continueNum2(str) {
             if (str[i] === str[j]) {
                 tempLength++
             }
-            console.log(str[i],str[j],tempLength, j, i)
             if (str[i] !== str[j] || j === str.length -1) {
                 if (tempLength > res.count) {
                     res = {
@@ -62,7 +61,6 @@ function continueNum2(str) {
                 }
                 if (i < str.length - 1) { // 避免无限循环
                     i = j - 1
-                    console.log(i)
                 }
                 break
             }
@@ -70,5 +68,36 @@ function continueNum2(str) {
     }
     return res
 }
-
-module.exports = continueNum2
+/**
+ * @description: 输出连续字符及次数 双指针 时间复杂度O(n) 空间复杂度O(1)
+ * @param {str}
+ * @return {obj}
+ */
+function continueNum3(str) {
+    let res = {
+        char: '',
+        count: 0
+    }
+    if (!str) return res
+    let tempLength = i = j =0
+    for (; i<str.length; i++) {
+        if (str[i] === str[j]) {
+            tempLength++
+        }
+        if (str[i] !== str[j] || i === str.length - 1) {
+            if (tempLength > res.count) {
+                res = {
+                    char: str[j],
+                    count: tempLength
+                }
+            }
+            tempLength = 0
+            if (i < str.length - 1) {
+                j = i
+                i--
+            }
+        }
+    }
+    return res
+}
+module.exports = continueNum3
