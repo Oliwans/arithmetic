@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-11 21:14:37
+ * @LastEditTime: 2022-04-12 00:36:33
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -105,4 +105,14 @@
 //----------------------------- 查找对称数（回文） -----------------------------
 // const fun = require('./find-symmetric-num/index.js')
 // const result = fun(99)
+// console.log(result)
+
+//----------------------------- 修改字符串中字母大小写 -----------------------------
+// const fun = require('./letter-upper-lower/index.js')
+// const result = fun('123sdKJdSDFEdsdf')
+// console.log(result)
+
+//----------------------------- 数字千分位划分 -----------------------------
+// const fun = require('./count-thousands/index.js')
+// const result = fun(1123)
 // console.log(result)
