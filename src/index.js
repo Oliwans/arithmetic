@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-11 01:40:55
+ * @LastEditTime: 2022-04-11 21:14:37
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -93,6 +93,16 @@
 // console.log(fun([1,0,3,4,0,0,11,0]))
 
 //----------------------------- 输出连续字符及次数 -----------------------------
-const fun = require('./continue-number/index.js')
-const result = fun('adda')
-console.log(result)
+// const fun = require('./continue-number/index.js')
+// const result = fun('adda')
+// console.log(result)
+
+//----------------------------- 快排 -----------------------------
+// const fun = require('./sort-collection/index.js')
+// const result = fun([13,2,1,6,4,7,5])
+// console.log(result)
+
+//----------------------------- 查找对称数（回文） -----------------------------
+// const fun = require('./find-symmetric-num/index.js')
+// const result = fun(99)
+// console.log(result)
