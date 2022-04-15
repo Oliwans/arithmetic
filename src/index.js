@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-06 17:44:20
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-12 00:36:33
+ * @LastEditTime: 2022-04-15 13:31:21
  * @FilePath: /arithmetic/src/index.js
  */
 
@@ -92,9 +92,9 @@
 // const fun = require('./move-zero/index.js')
 // console.log(fun([1,0,3,4,0,0,11,0]))
 
-//----------------------------- 输出连续字符及次数 -----------------------------
+// ----------------------------- 输出连续字符及次数 -----------------------------
 // const fun = require('./continue-number/index.js')
-// const result = fun('adda')
+// const result = fun('abcbcacb')
 // console.log(result)
 
 //----------------------------- 快排 -----------------------------
@@ -115,4 +115,9 @@
 //----------------------------- 数字千分位划分 -----------------------------
 // const fun = require('./count-thousands/index.js')
 // const result = fun(1123)
+// console.log(result)
+
+//----------------------------- 输出出现频率最高的字符 -----------------------------
+// const fun = require('./highest-frequency-char/index.js')
+// const result = fun('addaad')
 // console.log(result)

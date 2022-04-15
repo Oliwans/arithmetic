@@ -1,11 +1,11 @@
 /*
  * @Date: 2022-04-11 23:27:09
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-12 00:32:09
+ * @LastEditTime: 2022-04-13 18:52:07
  * @FilePath: /arithmetic/src/letter-upper-lower/index.js
  */
 /**
- * @description: 修改字符串中字母大小写ACE 时间复杂度O(n)
+ * @description: 修改字符串中字母大小写ASCII 时间复杂度O(n)
  * @param {str}
  * @return {str}
  */
