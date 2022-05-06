@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-05 01:57:34
+ * @LastEditTime: 2022-05-05 10:48:55
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -42,7 +42,7 @@ function throttle(fn, delay) {
  * @param {*}
  * @return {*}
  */
- function throttle(fn, delay) {
+ function debounce(fn, delay) {
     let timer;
     return () => {
         if (timer) clearTimeout(timer)
