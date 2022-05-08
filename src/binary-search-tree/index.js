@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-10 00:49:09
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 19:06:18
+ * @LastEditTime: 2022-05-08 22:55:16
  * @FilePath: /arithmetic/src/binary-search-tree/index.js
  */
 /**
@@ -34,7 +34,7 @@ function postTraverseTree(node) {
     console.log(node.value)
 }
 
-// 查找第K小值 时间复杂度O(n)
+// 查找第K小值 时间复杂度O(n)，采用中序遍历，可以把顺序由小到大排列，第k-1个就是第k小值
 function findTreeK(tree, k) {
     const arr = []
     function middleTraverseTree(node) {

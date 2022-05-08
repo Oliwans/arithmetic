@@ -1,11 +1,12 @@
 /*
  * @Date: 2022-04-09 23:28:37
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 18:07:17
+ * @LastEditTime: 2022-05-09 00:54:48
  * @FilePath: /arithmetic/src/two-number-sum/index.js
  */
 /**
  * @description: 找出一个数组中和为N的两个数，双指针解法，时间复杂度O(n) 空间复杂度O(1)
+ * 首先排序，然后双指针，两边向中间递增递减，直到找到和为n的两个数
  * @param {Array, n}
  * @return {Array}
  */

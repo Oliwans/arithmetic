@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-06 14:48:24
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-06 14:48:24
+ * @LastEditTime: 2022-05-09 00:58:36
  * @FilePath: /arithmetic/src/two-number-sum-link/index.js
  */
 /**
@@ -9,6 +9,10 @@
  * @param {*}
  * @return {*}
  */
+ function ListNode(val, next) {
+    this.val = this.val === undefined ? 0 : val
+    this.next = this.next === undefined ? null : next
+}
  var addTwoNumbers = function(l1, l2) {
     let head = tail = null
     let carry = 0

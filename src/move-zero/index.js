@@ -1,13 +1,13 @@
 /*
  * @Date: 2022-04-10 19:14:16
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-10 19:42:13
+ * @LastEditTime: 2022-05-09 00:28:25
  * @FilePath: /arithmetic/src/move-zero/index.js
  */
 /**
  * @description: 移动数组中的0到末尾，双指针解法 时间复杂度O(n) 空间复杂度O(1)
- * @param {arr}
- * @return {arr}
+ * @param {[1,0,2,0,3]}
+ * @return {[1,2,3,0,0]}
  */
 
 function moveZero(arr) {

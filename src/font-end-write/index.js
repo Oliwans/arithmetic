@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-05 10:48:55
+ * @LastEditTime: 2022-05-09 02:03:31
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -257,4 +257,84 @@ function cloneDeep(obj,map = new WeakMap()) {
         target[key] = val1
     }
     return target
+}
+
+/**
+ * @description: new方法实现
+ * @param {*}
+ * @return {*}
+ */
+
+function newFun(constructor, ...args) {
+    // 创建一个空对象，继承自constructor的原型
+    const obj = Object.create(constructor.prototype)
+    // 执行这个函数，传入参数
+    constructor.apply(obj, args)
+    // 返回obj
+    return obj
+}
+
+/**
+ * @description: 广度优先
+ * @param {*}
+ * @return {*}
+ */
+function breadthTree(node) {
+    const queue = []
+    queue.unshift(node)
+    while (queue.length) {
+        const curNode = queue.pop()
+        if (!curNode) break;
+        console.log(curNode.name)
+        // 子节点入队列
+        if (curNode.children) {
+            curNode.children.forEach(item => {
+                queue.unshift(item)
+            })
+        }
+    }
+}
+/**
+ * @description: 深度优先
+ * @param {*}
+ * @return {*}
+ */
+function depthTree1(node) {
+    console.log(node.name)
+    if (node.children) {
+        node.children.forEach(item => {
+            depthTree(item)
+        })
+    }
+}
+function depthTree2(node) {
+    const stack = []
+    stack.push(node)
+    while (stack.length) {
+        const curNode = stack.pop()
+        if (!curNode) break;
+        console.log(curNode.name)
+        // 子节点入队列
+        if (curNode.children) {
+            Array.from(curNode.children).reverse().forEach(e => stack.push(e))
+        }
+    }
+}
+let a = {
+    name: 1,
+    children: [{
+        name: 2,
+        children: [{
+            name:3
+        },{
+            name: 4
+        }]
+    },{
+        name: 5,
+        children: [{
+            name:6
+        },{
+            name: 7
+        }]
+    }]
 }

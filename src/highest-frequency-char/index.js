@@ -1,12 +1,13 @@
 /*
  * @Date: 2022-04-15 13:26:01
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-04-15 13:28:23
+ * @LastEditTime: 2022-05-09 00:13:46
  * @FilePath: /arithmetic/src/highest-frequency-char/index.js
  */
 
 /**
  * @description: 输出出现频率最高的字符 时间复杂度O(n) 空间复杂度O(1)
+ * 通过map去实现，倒叙遍历，通过比较map中映射的数量来更新value和count
  * @param {str}
  * @return {obj}
  */

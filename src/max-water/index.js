@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-06 14:44:24
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-06 14:44:25
+ * @LastEditTime: 2022-05-09 00:24:23
  * @FilePath: /arithmetic/src/max-water/index.js
  */
 /**
@@ -17,13 +17,10 @@
     while (i < j) {
         if (height[i] <= height[j]) {
             res = Math.max(res, height[i] * len)
-        } else {
-            res = Math.max(res, height[j] * len)
-        }
-        if (height[i] <= height[j]) {
             i++
             len--
         } else {
+            res = Math.max(res, height[j] * len)
             j--
             len--
         }
