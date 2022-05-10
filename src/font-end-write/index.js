@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-09 02:03:31
+ * @LastEditTime: 2022-05-10 15:50:50
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -338,3 +338,74 @@ let a = {
         }]
     }]
 }
+
+/**
+ * @description: 实现JSON.stringify
+ * @param {*}
+ * @return {*}
+ */
+
+function stringify(data) {
+    if (typeof data === 'string') {
+        return `"${data}"`
+    } else {
+        let result = []
+        Object.keys(data).forEach(item => {
+            result.push(`"${item}":${stringify(data[item])}`)
+        })
+        return `{${result}}`
+    }
+}
+
+/**
+ * @description: 把数组转化为树
+ * @param {*}
+ * @return {*}
+ */
+function convert(arr) {
+    const map = new Map()
+    let root = null
+    arr.forEach(item => {
+        const {id, name, parentId} = item
+        let node = {id, name}
+        map.set(id, node)
+        const parentNode = map.get(parentId)
+        if (parentNode) {
+            parentNode.children = parentNode.children || []
+            parentNode.children.push(node)
+        }
+        if (parentId === 0) root = node
+    })
+    return root
+}
+
+[
+    {id: 1, name: 'a', parentId: 0},
+    {id: 2, name: 'a', parentId: 1},
+    {id: 3, name: 'a', parentId: 1},
+    {id: 4, name: 'a', parentId: 2},
+    {id: 5, name: 'a', parentId: 2},
+    {id: 6, name: 'a', parentId: 3},
+    {id: 7, name: 'a', parentId: 3},
+    {id: 8, name: 'a', parentId: 4},
+    {id: 9, name: 'a', parentId: 4},
+]
+
+/**
+ * @description: 实现promise.all
+ * @param {*}
+ * @return {*}
+ */
+ Promise.MyAll = function (promises) {
+    let arr = [],
+      count = 0
+    return new Promise((resolve, reject) => {
+      promises.forEach((item, i) => {
+        Promise.resolve(item).then(res => {
+          arr[i] = res
+          count += 1
+          if (count === promises.length) resolve(arr)
+        }, reject)
+      })
+    })
+  }
