@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-10 15:50:50
+ * @LastEditTime: 2022-05-25 13:51:10
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -367,7 +367,7 @@ function convert(arr) {
     let root = null
     arr.forEach(item => {
         const {id, name, parentId} = item
-        let node = {id, name}
+        let node = {id, name, parentId}
         map.set(id, node)
         const parentNode = map.get(parentId)
         if (parentNode) {
@@ -376,7 +376,31 @@ function convert(arr) {
         }
         if (parentId === 0) root = node
     })
-    return root
+    return [root]
+}
+/**
+ * @description: 树转化为数组
+ * @param {*} node
+ * @return {*}
+ */
+function wideTraversal(node){
+    let stack = node,
+        data = [];
+    while(stack.length != 0){
+        let shift = stack.shift();
+        data.push({
+            id: shift.id,
+            name: shift.name,
+            parentId: shift.parentId
+        })
+        let children = shift.children
+        if(children){
+            for(let i = 0; i < children.length; i++){
+                stack.push(children[i])
+            }
+        }
+    }
+    return data
 }
 
 [
@@ -408,4 +432,25 @@ function convert(arr) {
         }, reject)
       })
     })
+  }
+  /**
+   * @description: get参数数据结构化
+   * @return {*}
+   */
+   function getUrlJson(str) {
+    let obj = {}
+    let index = str.indexOf('?') // 得到 ? 号的索引位置
+    if (index !== -1) {
+      let optionStr = str.slice(index + 1)  // 得到 ? 号后边的字符串
+      let arr = optionStr.split('&')  // 得到每一项的 a=1 组成的数组
+      for (let i = 0; i < arr.length; i++) {
+        let j = arr[i].indexOf('=') // 得到 '=' 号的索引位置
+        if (j === -1) {
+          obj[arr[i]] = undefined
+        } else {
+          obj[arr[i].slice(0, j)] = arr[i].slice(j + 1)
+        }
+      }
+    }
+    return obj
   }
