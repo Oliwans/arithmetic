@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-25 13:51:10
+ * @LastEditTime: 2022-06-08 21:38:27
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -454,3 +454,22 @@ function wideTraversal(node){
     }
     return obj
   }
+  /**
+   * @description: 函数柯里化
+   * @param {*} x
+   * @return {*}
+   */
+  function add(x) {
+    // 存储和
+    let sum = x;
+     
+    // 函数调用会相加，然后每次都会返回这个函数本身
+    let tmp = function (y) {
+      sum = sum + y;
+      return tmp;
+    };
+    
+    // 对象的toString必须是一个方法 在方法中返回了这个和
+    tmp.toString = () => sum
+    return tmp;
+ }
