@@ -1,8 +1,8 @@
 <!--
  * @Date: 2022-05-18 14:09:46
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-19 00:49:48
- * @FilePath: /arithmetic/readme.md
+ * @LastEditTime: 2022-07-12 18:43:19
+ * @FilePath: /arithmetic/README.md
 -->
 ### 前端面试及算法 JavaScript版
 #### 前端手写代码题
@@ -11,10 +11,6 @@
 #### 算法 easy
 [二分查找](./src/binary-search/index.js)<br />
 [四种排序](./src/sort-collection/index.js)<br />
-
-[反转二叉树](./src/invert-tree/index.js)<br />
-[二叉树前、中、后序遍历](./src/binary-search-tree/index.js)<br />
-
 [括号匹配](./src/brackets-match/index.js)<br />
 [输出连续字符及次数](./src/continue-number/index.js)<br />
 [数字千分位化](./src/count-thousands/index.js)<br />
@@ -62,7 +58,7 @@
 [不同的二叉搜索树](./src/num-trees/index.js)<br />
 [单词搜索](./src/word-exist/index.js)<br />
 [验证二叉搜索树](./src/is-valid-BST/index.js)<br />
-[二叉树层序遍历](./src/level-order-tree/index.js)<br />
+
 [给定前序中序遍历构造二叉树](./src/build-tree/index.js)<br />
 [二叉树展开为链表](./src/flatten-tree/index.js)<br />
 [数组最长连续序列](./src/longest-consecutive/index.js)<br />
@@ -74,7 +70,7 @@
 [寻找重复数](./src/find-duplicate/index.js)<br />
 [完全平方数](./src/num-squares/index.js)<br />
 [除自身以外的数的乘积](./src/product-except-self/index.js)<br />
-[二叉树的最近公共祖先](./src/rolowest-common-ancestorb/index.js)<br />
+
 [最大正方形](./src/maximal-square/index.js)<br />
 [实现前缀树](./src/trie-class/index.js)<br />
 [课程表](./src/can-finish-class/index.js)<br />
@@ -88,3 +84,13 @@
 #### 算法 hard
 [寻找两个正序数组中位数要求O(log(m+n)](./src/find-median-sorted-arrays/index.js)<br />
 [接雨水](./src/trap/index.js)<br />
+
+
+
+#### 二叉树
+[反转二叉树(easy)](./src/invert-tree/index.js)<br />
+[二叉树前、中、后序遍历(easy)](./src/binary-search-tree/index.js)<br />
+[获取二叉树最大深度(easy)](./src/tree-floors-max/index.js)<br />
+[获取二叉树最小深度(easy)](./src/tree-floors-min/index.js)<br />
+[二叉树的最近公共祖先(middle)](./src/rolowest-common-ancestorb/index.js)<br />
+[二叉树层序遍历(middle)](./src/level-order-tree/index.js)<br />

@@ -1,11 +1,11 @@
 /*
  * @Date: 2022-05-19 00:10:03
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-19 00:10:03
+ * @LastEditTime: 2022-07-12 15:19:13
  * @FilePath: /arithmetic/src/num-trees/index.js
  */
 /**
- * @description: 不同的二叉搜索数
+ * @description: 不同的二叉搜索树
  * @param {*}
  * @return {*}
  */

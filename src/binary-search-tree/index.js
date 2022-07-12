@@ -1,11 +1,12 @@
 /*
  * @Date: 2022-04-10 00:49:09
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-08 22:55:16
+ * @LastEditTime: 2022-07-12 15:18:08
  * @FilePath: /arithmetic/src/binary-search-tree/index.js
  */
 /**
  * @description: 二叉树前、中、后序遍历 时间复杂度O(n) 空间复杂度O(n)
+ * @thinking 使用递归遍历
  * @param {node}
  * @return {value}
  */
