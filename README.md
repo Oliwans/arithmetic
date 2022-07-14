@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-05-18 14:09:46
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-07-12 18:43:19
+ * @LastEditTime: 2022-07-14 20:42:36
  * @FilePath: /arithmetic/README.md
 -->
 ### 前端面试及算法 JavaScript版
@@ -9,7 +9,7 @@
 [手写代码](./src/font-end-write/index.js)<br />
 
 #### 算法 easy
-[二分查找](./src/binary-search/index.js)<br />
+
 [四种排序](./src/sort-collection/index.js)<br />
 [括号匹配](./src/brackets-match/index.js)<br />
 [输出连续字符及次数](./src/continue-number/index.js)<br />
@@ -94,3 +94,10 @@
 [获取二叉树最小深度(easy)](./src/tree-floors-min/index.js)<br />
 [二叉树的最近公共祖先(middle)](./src/rolowest-common-ancestorb/index.js)<br />
 [二叉树层序遍历(middle)](./src/level-order-tree/index.js)<br />
+
+#### 数组
+[二分查找(easy)](./src/binary-search/index.js)<br />
+[移除数组中相同元素(easy)](./src/remove-item/index.js)<br />
+[有序数组平方平方排序(easy)](./src/sorted-squares/index.js)<br />
+[长度最小的子数组(middle)](./src/min-sub-array-len/index.js)<br />
+[螺旋矩阵II(middle)](./src/generate-matrix/index.js)<br />

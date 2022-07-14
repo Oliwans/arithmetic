@@ -1,15 +1,15 @@
 /*
  * @Date: 2022-04-08 17:14:17
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-08 22:53:26
+ * @LastEditTime: 2022-07-14 17:24:32
  * @FilePath: /arithmetic/src/binary-search/index.js
  */
 
 /**
- * @description: 二分查找，时间复杂度O(logn) 空间复杂度O(logn)
- * 前提是有序数组，可以通过一分为二查找，不断缩小边界值
- * @param {*}
- * @return {*}
+ * @description 二分查找，时间复杂度O(logn) 空间复杂度O(logn)
+ * @thinking 二分查找，通过中间值与target比较，不断缩小边界范围，直到找到元素
+ * @param {arr, target}
+ * @return {index}
  */
 
 function binarySearch(arr, target) {
