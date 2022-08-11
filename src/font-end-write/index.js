@@ -1,7 +1,13 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-06-08 21:38:27
+ * @LastEditTime: 2022-08-11 15:47:13
+ * @FilePath: /arithmetic/src/font-end-write/index.js
+ */
+/*
+ * @Date: 2022-05-04 16:19:07
+ * @LastEditors: wangpeng
+ * @LastEditTime: 2022-08-11 13:43:03
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -459,17 +465,80 @@ function wideTraversal(node){
    * @param {*} x
    * @return {*}
    */
-  function add(x) {
-    // 存储和
-    let sum = x;
-     
-    // 函数调用会相加，然后每次都会返回这个函数本身
-    let tmp = function (y) {
-      sum = sum + y;
-      return tmp;
+   function add() {
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    var _args = Array.prototype.slice.call(arguments);
+
+    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+    var _adder = function() {
+        _args.push(...arguments);
+        return _adder;
     };
+
+    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+    _adder.toString = function () {
+        return _args.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+    return _adder;
+}
+
+/**
+   * @description: 实现一个promise
+   * @param {*} x
+   * @return {*}
+   */
+ const PENDING = 'pending'
+ const RESOLVED = 'resolved'
+ const REJECTED = 'rejected'
+ 
+ function MyPromise(fn) {
+   const that = this
+   that.state = PENDING
+   that.value = null
+   that.resolvedCallbacks = []
+   that.rejectedCallbacks = []
+   // 待完善 resolve 和 reject 函数
+   function resolve(value) {
+        if (that.state === PENDING) {
+        that.state = RESOLVED
+        that.value = value
+        that.resolvedCallbacks.map(cb => cb(that.value))
+        }
+    }
     
-    // 对象的toString必须是一个方法 在方法中返回了这个和
-    tmp.toString = () => sum
-    return tmp;
+    function reject(value) {
+        if (that.state === PENDING) {
+        that.state = REJECTED
+        that.value = value
+        that.rejectedCallbacks.map(cb => cb(that.value))
+        }
+    }
+   // 待完善执行 fn 函数
+   try {
+        fn(resolve, reject)
+    } catch (e) {
+        reject(e)
+    }
  }
+ MyPromise.prototype.then = function(onFulfilled, onRejected) {
+    const that = this
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
+    onRejected =
+      typeof onRejected === 'function'
+        ? onRejected
+        : r => {
+            throw r
+          }
+    if (that.state === PENDING) {
+      that.resolvedCallbacks.push(onFulfilled)
+      that.rejectedCallbacks.push(onRejected)
+    }
+    if (that.state === RESOLVED) {
+      onFulfilled(that.value)
+    }
+    if (that.state === REJECTED) {
+      onRejected(that.value)
+    }
+  }
