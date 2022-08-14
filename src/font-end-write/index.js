@@ -1,17 +1,11 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-08-11 15:47:13
- * @FilePath: /arithmetic/src/font-end-write/index.js
- */
-/*
- * @Date: 2022-05-04 16:19:07
- * @LastEditors: wangpeng
- * @LastEditTime: 2022-08-11 13:43:03
+ * @LastEditTime: 2022-08-14 22:05:35
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
- * @description: 原生代码实现http请求
+ * @description: 1.原生代码实现http请求
  * @param {*}
  * @return {*}
  */
@@ -28,10 +22,11 @@ function ajax(url, successCb) {
     xml.send()
 }
 /**
- * @description: 节流
+ * @description: 2.节流
  * @param {*}
  * @return {*}
  */
+
 function throttle(fn, delay) {
     let timer;
     return () => {
@@ -44,7 +39,7 @@ function throttle(fn, delay) {
 }
 
 /**
- * @description: 防抖
+ * @description: 3.防抖
  * @param {*}
  * @return {*}
  */
@@ -60,7 +55,7 @@ function throttle(fn, delay) {
 }
 
 /**
- * @description: 实现bind函数
+ * @description: 4.实现bind函数
  * @param {*}
  * @return {*}
  */
@@ -73,7 +68,7 @@ Function.prototype.bindFn = function (context, ...bindArgs) {
 }
 
 /**
- * @description: 实现call函数
+ * @description: 5.实现call函数
  * @param {*}
  * @return {*}
  */
@@ -88,7 +83,7 @@ Function.prototype.bindFn = function (context, ...bindArgs) {
 }
 
 /**
- * @description: 实现apply函数
+ * @description: 6.实现apply函数
  * @param {*}
  * @return {*}
  */
@@ -103,7 +98,7 @@ Function.prototype.bindFn = function (context, ...bindArgs) {
 }
 
 /**
- * @description: 实现instanceof函数
+ * @description: 7.实现instanceof函数
  * @param {*}
  * @return {*}
  */
@@ -122,7 +117,7 @@ function instanceOf(instance, origin) {
     return false
 }
 /**
- * @description: lazyman
+ * @description: 8.lazyman
  * @param {*}
  * @return {*}
  */
@@ -158,7 +153,7 @@ class LazyMan {
     }
 }
 /**
- * @description: 数组扁平化
+ * @description: 9.数组扁平化
  * @param {*}
  * @return {*}
  */
@@ -182,7 +177,7 @@ function arrayFlatten2(arr) {
 }
 
 /**
- * @description: 数组彻底扁平化
+ * @description: 10.数组彻底扁平化
  * @param {*}
  * @return {*}
  */
@@ -213,7 +208,7 @@ function arrayFlatten4(arr) {
 }
 
 /**
- * @description: 实现getType函数
+ * @description: 11.实现getType函数
  * @param {*}
  * @return {*}
  */
@@ -224,49 +219,44 @@ function getType(e) {
 }
 
 /**
- * @description: 深拷贝
+ * @description: 12.深拷贝
  * @param {*}
  * @return {*}
  */
-function cloneDeep(obj,map = new WeakMap()) {
-    if (typeof obj !== 'object' || obj === null) return obj
-    //避免循环引用
-    const objFromMap = map.get(obj)
-    if (objFromMap) return objFromMap
-    let target = {}
-    map.set(obj, target)
-    //map
-    if (obj instanceof Map) {
-        target = new Map()
-        obj.forEach((v,k) => {
-            const v1 = cloneDeep(v, map)
-            const k1 = cloneDeep(k, map)
-            target.set(v1,k1)
-        })
+ const deepClone = function(obj, map = new Map()) {
+    if (!obj) return obj
+    if (map.has(obj)) { // 判断是否循环引用
+      return map.get(obj) 
     }
-    //map
-    if (obj instanceof Set) {
-        target = new Set()
-        obj.forEach((v) => {
-            const v1 = cloneDeep(v, map)
-            target.add(v1)
-        })
+  
+    let newObj
+    if (Object.prototype.toString.call(obj) == "[object Object]") {
+      newObj = {}
+      map.set(obj, newObj);
+      for (let key in obj) {
+        let val = obj[key]
+        newObj[key] = deepClone(val, map)
+      }
+    } else if (Object.prototype.toString.call(obj) == "[object Array]") {
+      newObj = []
+      map.set(obj, newObj);
+      for (let key in obj) {
+        let val = obj[key]
+        newObj[key] = deepClone(val, map)
+      }
+    } else if (Object.prototype.toString.call(obj) == "[object Function]") {
+      newObj = obj.clone() 
+    } else if (obj.constructor === Object.prototype.toString.call(obj) == "[object Date]") {
+      newObj = new Date(obj)
+    } else {
+      newObj = obj
     }
-    // array
-    if (obj instanceof Array) {
-        target = obj.map(item => cloneDeep(item, map))
-    }
-    // object
-    for (key in obj) {
-        const val = obj[key]
-        const val1 = cloneDeep(val, map)
-        target[key] = val1
-    }
-    return target
-}
+  
+    return newObj
+  }
 
 /**
- * @description: new方法实现
+ * @description: 13.new方法实现
  * @param {*}
  * @return {*}
  */
@@ -281,11 +271,11 @@ function newFun(constructor, ...args) {
 }
 
 /**
- * @description: 广度优先
+ * @description: 14.tree遍历，广度优先
  * @param {*}
  * @return {*}
  */
-function breadthTree(node) {
+function breadthTree1(node) {
     const queue = []
     queue.unshift(node)
     while (queue.length) {
@@ -297,6 +287,19 @@ function breadthTree(node) {
             curNode.children.forEach(item => {
                 queue.unshift(item)
             })
+        }
+    }
+}
+function breadthTree2(node) {
+    const stack = []
+    stack.push(node)
+    while (stack.length) {
+        const curNode = stack.shift()
+        if (!curNode) break;
+        console.log(curNode.name)
+        // 子节点入队列
+        if (curNode.children) {
+            Array.from(curNode.children).forEach(e => stack.push(e))
         }
     }
 }
@@ -346,25 +349,64 @@ let a = {
 }
 
 /**
- * @description: 实现JSON.stringify
+ * @description: 15.实现JSON.stringify
  * @param {*}
  * @return {*}
  */
 
-function stringify(data) {
-    if (typeof data === 'string') {
-        return `"${data}"`
-    } else {
-        let result = []
-        Object.keys(data).forEach(item => {
-            result.push(`"${item}":${stringify(data[item])}`)
-        })
-        return `{${result}}`
+const jsonToString = function(obj) {
+  if (!obj) return obj
+  let str = ``
+
+  if (Object.prototype.toString.call(obj) === '[object Array]') {
+    str = `[`
+    let keys = Object.keys(obj)
+    for (let j = 0; j < keys.length; j++) {
+      let key = keys[j]
+      let val = obj[key]
+      let res = jsonToString(val)
+      str = `${str}${res}`
+      if (j !== keys.length - 1) str = `${str},` // remove the last comma
     }
+    str = `${str}]`
+  } else if (Object.prototype.toString.call(obj) === '[object Object]') {
+    str = `{`
+    let keys = Object.keys(obj)
+    for (let j = 0; j < keys.length; j++) {
+      let key = keys[j]
+      let val = obj[key]
+      let res = jsonToString(val)
+      str = `${str}"${key}":${res}`
+      if (j !== keys.length - 1) str = `${str},` // remove the last comma
+    }
+    str = `${str}}`
+  } else {
+    // other than array or object
+    return `${obj}`
+  }
+
+  return str
 }
+/**
+ * @description: 16.实现JSON.parse
+ * @return {*}
+ */
+function stringToJson(jsonStr){
+    return eval("(" + jsonStr +")")
+}
+let jsonToStringTest = {
+    a: 11,
+    b: {
+        b: 22,
+        c: {
+            D: 33,
+            e: [44,55,66]
+        }
+    }
+};
 
 /**
- * @description: 把数组转化为树
+ * @description: 17.把数组转化为树
  * @param {*}
  * @return {*}
  */
@@ -385,7 +427,7 @@ function convert(arr) {
     return [root]
 }
 /**
- * @description: 树转化为数组
+ * @description: 18.树转化为数组
  * @param {*} node
  * @return {*}
  */
@@ -422,28 +464,10 @@ function wideTraversal(node){
 ]
 
 /**
- * @description: 实现promise.all
- * @param {*}
+ * @description: 19.get参数数据结构化
  * @return {*}
  */
- Promise.MyAll = function (promises) {
-    let arr = [],
-      count = 0
-    return new Promise((resolve, reject) => {
-      promises.forEach((item, i) => {
-        Promise.resolve(item).then(res => {
-          arr[i] = res
-          count += 1
-          if (count === promises.length) resolve(arr)
-        }, reject)
-      })
-    })
-  }
-  /**
-   * @description: get参数数据结构化
-   * @return {*}
-   */
-   function getUrlJson(str) {
+function getUrlJson(str) {
     let obj = {}
     let index = str.indexOf('?') // 得到 ? 号的索引位置
     if (index !== -1) {
@@ -460,85 +484,284 @@ function wideTraversal(node){
     }
     return obj
   }
-  /**
-   * @description: 函数柯里化
-   * @param {*} x
-   * @return {*}
-   */
-   function add() {
-    // 第一次执行时，定义一个数组专门用来存储所有的参数
-    var _args = Array.prototype.slice.call(arguments);
-
-    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
-    var _adder = function() {
-        _args.push(...arguments);
-        return _adder;
-    };
-
-    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
-    _adder.toString = function () {
-        return _args.reduce(function (a, b) {
-            return a + b;
-        });
-    }
-    return _adder;
-}
-
 /**
-   * @description: 实现一个promise
+ * @description: 20.函数柯里化
+ * @param {*} x
+ * @return {*}
+ */
+const myCurry = function(fn) {
+    // fn.length gives the length of arguments of fn
+    let length = fn.length
+    // get arguments from myCurry
+    let args = [...arguments].slice(1)
+  
+    return function(...innerArgs) {
+      // concat myCurry and currying arguments
+      let moreArgs = [...args, ...innerArgs]
+      // if current length === fn.length, we can return the result
+      if (length === moreArgs.length) return fn.apply(this, moreArgs)
+      // if not yet finished, recursion and call myCurry.apply with the correct arguments
+      else return myCurry.apply(this, [fn, ...moreArgs])
+    }
+}
+function sum(a, b, c) {
+    return a + b + c;
+}
+let currying = myCurry(sum)
+console.log(currying(1)(2)(3))
+console.log(currying(1,2,3))
+/**
+ * @description: 21.实现promise.all
+ * @param {*}
+ * @return {*}
+ */
+ Promise.MyAll = function (promises) {
+    let arr = [],
+      count = 0
+    return new Promise((resolve, reject) => {
+      promises.forEach((item, i) => {
+        Promise.resolve(item).then(res => {
+          arr[i] = res
+          count += 1
+          if (count === promises.length) resolve(arr)
+        }, reject)
+      })
+    })
+}
+/**
+ * @description: 22.实现一个promise.race
+ * @return {*}
+ */
+ const promiseRace = function(promises) {
+    return new Promise((resolve, reject) => {
+      for (let fn of promises) {
+        fn.apply(this)
+        .then((res) => {
+          resolve(res)
+        }).catch((err) => {
+          reject(err)
+        })
+      }
+    })
+  }
+/**
+   * @description: 23.实现一个promise
    * @param {*} x
    * @return {*}
    */
- const PENDING = 'pending'
- const RESOLVED = 'resolved'
- const REJECTED = 'rejected'
- 
- function MyPromise(fn) {
-   const that = this
-   that.state = PENDING
-   that.value = null
-   that.resolvedCallbacks = []
-   that.rejectedCallbacks = []
-   // 待完善 resolve 和 reject 函数
-   function resolve(value) {
-        if (that.state === PENDING) {
-        that.state = RESOLVED
-        that.value = value
-        that.resolvedCallbacks.map(cb => cb(that.value))
-        }
+ class MyPromise {
+    constructor(fn) {
+      // Only allow to call resolve or reject once. If resolve or reject is executed, 
+      // the promise is done and not allow to call resolve or reject again
+      this.state = 'pending'
+      // save for later, execute cb in stack when resolving or rejecting
+      this.successfullStack = []
+      this.failureStack = []
+  
+      // we should use arrow function here, using normal function will make this undefined
+      const resolve = (res) => {
+        // if promise is finished (not pending state), not continue and return
+        if (this.state === 'pending') this.state = 'success'
+        else return
+  
+        // execute callback one by one
+        this.successfullStack.forEach((next) => {
+          const nextRes = next[0].apply(this, [res])
+          next[1](nextRes)
+        })
+      }
+  
+      const reject = (res) => {
+        // if promise is finished (not pending state), not continue and return
+        if (this.state === 'pending') this.state = 'fail'
+        else return
+  
+        this.failureStack.forEach((cb) => {
+          cb.apply(this, [res])
+        })
+      }
+  
+      fn(resolve, reject)
     }
-    
-    function reject(value) {
-        if (that.state === PENDING) {
-        that.state = REJECTED
-        that.value = value
-        that.rejectedCallbacks.map(cb => cb(that.value))
-        }
+  
+    then(cb) {
+      // chaining promise 链式调用
+      // create a new promise and return this promise
+      // push callback, resolve and reject to the stack
+      return new MyPromise((resolve, reject) => {
+        this.successfullStack.push([cb, resolve, reject])
+      })
     }
-   // 待完善执行 fn 函数
-   try {
-        fn(resolve, reject)
-    } catch (e) {
-        reject(e)
-    }
- }
- MyPromise.prototype.then = function(onFulfilled, onRejected) {
-    const that = this
-    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
-    onRejected =
-      typeof onRejected === 'function'
-        ? onRejected
-        : r => {
-            throw r
-          }
-    if (that.state === PENDING) {
-      that.resolvedCallbacks.push(onFulfilled)
-      that.rejectedCallbacks.push(onRejected)
-    }
-    if (that.state === RESOLVED) {
-      onFulfilled(that.value)
-    }
-    if (that.state === REJECTED) {
-      onRejected(that.value)
+  
+    catch(cb) {
+      this.failureStack.push(cb)
+      return this
     }
   }
+/**
+ * @description: 24.输入一个多层级对象，找到路径
+ * @param {*} x
+ * @return {*}
+ */
+
+ function findPath(obj, val) {
+    for (let item in obj) {
+        if (typeof obj[item] === 'object') {
+            let temp = findPath(obj[item], val)
+            if (temp) return [item].concat(temp).flat()
+        } else if (obj[item] === val) {
+            return [item]
+        }
+    }
+}
+
+function getPath(obj, val) {
+    let arr = []
+    for (let key in obj) {
+        if (typeof obj[key]  === 'object'){
+            let res = getPath(obj[key], val)
+            if (res.length) arr = arr.concat(key).concat(res)
+        } else if (obj[key] === val){
+            arr = arr.concat(key)
+        }
+    }
+    return arr
+}
+let obj = {
+    k: {
+        j: {
+            d: 1
+        }
+    },
+    p: 2
+}
+/**
+ * @description: 25.实现reduce
+ * @return {*}
+ */
+ Array.prototype.myReduce = function(fn, initialValue) {
+    let nums = this
+    let res = 0
+    if (initialValue) res = initialValue
+  
+    for (let i = 0; i < nums.length; i++) {
+      res = fn(res, nums[i])
+    }
+  
+    return res
+}
+/**
+ * @description: 26.手动实现tirm
+ * @return {*}
+ */
+ String.prototype.myTrim = function() {
+    let str = this
+    const trimLeft = function(string) {
+      for (let i = 0; i < string.length; i++) {
+        if (string.charAt(i) !== ' ') {
+          return string.substring(i, string.length)
+        }
+      }
+  
+      return string
+    }
+  
+    const trimRight = function(string) {
+      for (let i = string.length - 1; i >= 0; i--) {
+        if (string.charAt(i) !== ' ') {
+          return string.substring(0, i + 1)
+        }
+      }
+  
+      return string
+    }
+  
+    return trimRight(trimLeft(str))
+}
+/**
+ * @description: 27.实现dom to json
+ * @return {*}
+ */
+ const dom2json = function(domTree) {
+    // create an obj
+    let obj = {}
+    // get the tag name
+    obj.tag = domTree.tagName
+    // setup array for children
+    obj.children = []
+    // iterate each child node
+    domTree.childNodes.forEach((child) => {
+      // dfs, it will return json of this child
+      obj.children.push(dom2json(child))
+    })
+    return obj
+}
+/**
+ * @description: 28.实现json to dom
+ * @return {*}
+ */
+ const vdomToRdom = function(vdom) {
+    let tag = vdom.tag.toLowerCase()
+    let dom = document.createElement(tag)
+  
+    if (vdom.attrs) {
+      for (let key in vdom.attrs) {
+        let val = vdom.attrs[key]
+        dom.setAttribute(key, val)
+      }
+    }
+  
+    for (let child of vdom.children) {
+      let childNode = vdomToRdom(child)
+      dom.appendChild(childNode)
+    }
+  
+    return dom
+  }
+  /**
+   * @description: 29.版本号排序
+   * @return {*}
+   */
+   const sortByVersion = function(versions) {
+    versions.sort((a, b) => {
+      let alist = a.split('.')
+      let blist = b.split('.')
+      let index = 0
+  
+      while (alist[index] && blist[index] && alist[index] === blist[index]) {
+        index++
+      }
+  
+      if (alist[index] && !blist[index]) return -1 // if a is longer, a should be larger
+      else if (!alist[index] && blist[index]) return 1 // if b is longer, b should be larger
+      else if (alist[index] !== blist[index]) return blist[index] - alist[index] // if a != b, return b - a 
+  
+      return 0 // a = b
+    })
+  
+    return versions
+  }
+  /**
+   * @description: 30.寄生组合继承
+   * @return {*}
+   */
+// 寄生组合继承
+function Parent(name) {
+    this.name = name
+    this.say = () => {
+       console.log("111")
+    }
+  }
+  function Child(name) {
+    Parent.call(this, name) // step 1
+    this.name = name
+  }
+  Child.prototype = Object.create(Parent.prototype) // step 2
+  Child.prototype.constructor = Child // step 3
+  Parent.prototype.play = () => {
+    console.log("222")
+  }
+  
+  let child = new Child("儿子");
+  console.log(child.name);
+  child.say();

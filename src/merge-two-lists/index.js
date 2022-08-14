@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-18 23:30:16
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-18 23:30:16
+ * @LastEditTime: 2022-08-12 15:22:45
  * @FilePath: /arithmetic/src/merge-two-lists/index.js
  */
 /**
