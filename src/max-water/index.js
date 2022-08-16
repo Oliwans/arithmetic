@@ -1,11 +1,11 @@
 /*
  * @Date: 2022-05-06 14:44:24
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-05-09 00:24:23
+ * @LastEditTime: 2022-08-16 12:15:01
  * @FilePath: /arithmetic/src/max-water/index.js
  */
 /**
- * @description: 最大盛水容器，双指针
+ * @description: 最大盛水容器，双指针  短的高度*length
  * @param {*}
  * @return {*}
  */

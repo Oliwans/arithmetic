@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-05-18 14:09:46
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-07-14 20:42:36
+ * @LastEditTime: 2022-08-16 12:00:54
  * @FilePath: /arithmetic/README.md
 -->
 ### 前端面试及算法 JavaScript版
@@ -58,6 +58,7 @@
 [不同的二叉搜索树](./src/num-trees/index.js)<br />
 [单词搜索](./src/word-exist/index.js)<br />
 [验证二叉搜索树](./src/is-valid-BST/index.js)<br />
+[无重复字符最长子串](./src/length-longest-substring/index.js)<br />
 
 [给定前序中序遍历构造二叉树](./src/build-tree/index.js)<br />
 [二叉树展开为链表](./src/flatten-tree/index.js)<br />
