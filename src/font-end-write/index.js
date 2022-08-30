@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-08-14 22:05:35
+ * @LastEditTime: 2022-08-29 10:15:46
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -765,3 +765,22 @@ function Parent(name) {
   let child = new Child("儿子");
   console.log(child.name);
   child.say();
+  /**
+   * @description: 单例模式
+   * @return {*}
+   */
+   class SingleClass {
+    constructor() {
+      this.instance = null
+    }
+  
+    static getInstance(name) {
+      if (this.instance) return this.instance
+  
+      this.instance = new SingleClass(name)
+      return this.instance
+    }
+  }
+  let Jack = SingleClass.getInstance('Jack');
+  let Tom = SingleClass.getInstance('Tom');
+  console.log( Jack === Tom ); // true
