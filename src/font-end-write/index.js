@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-05-04 16:19:07
  * @LastEditors: wangpeng
- * @LastEditTime: 2022-08-29 10:15:46
+ * @LastEditTime: 2022-09-20 15:53:56
  * @FilePath: /arithmetic/src/font-end-write/index.js
  */
 /**
@@ -634,6 +634,30 @@ let obj = {
         }
     },
     p: 2
+}
+
+/**
+   * @description: 25.路径还原成对象
+   * @return {*}
+   */
+  // const obj = { 
+  //   'a.b.c': 5,
+  //   'a.e.x': 'xxx',
+  //   'a.d': 'yyy'
+  // };
+  
+  function setObj(obj) {
+    let res = {}
+    Object.keys(obj).forEach(item => {
+        help(item, obj[item], res);
+    })
+    return res
+};
+
+let help = (path, value, obj) => {
+    path.split('.').reduce((r, e, i,arr) => {
+        return r[e] || (r[e] = i === arr.length -1 ? value : {})
+    }, obj)
 }
 /**
  * @description: 25.实现reduce
